@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title %}Клиент{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ client.client_name }}</h1>
+        <p>{{ client.cust_balance }}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}Данные о клиенте{% endblock %}
+
+{% block content %}
+<div class="features">
+    <div class="find">
+    <h1>Проверка клиента</h1>
+    <input class="place_for_search" type="text" id="text-to-find" value="" placeholder="Поиск клиента" autofocus>
+    <button class="search-btn">
+        Find
+    </button>
+</div>
+<div class="features">
+    <div class="clients-list">
+        {% if data %}
+        {% for el in data %}
+        <li style="display:none">
+            <p class="arara">{{ el.cust_name }}</p><br>
+            Сумма покупок: {{ el.amount_of_purchases }}<br>Счёт: {{ el.cust_balance }}<br>
+            Потолок кредита: {{ el.cust_ceiling }}<br>Долг: {{ el.cust_debt }}<br>Комментарий: {{ el.comment }}
+        </li>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+</div>
+<script>
+    let clientsList = document.querySelectorAll('.clients-list li')
+    document.addEventListener('keyup', () => {
+        search(clientsList)
+    })
+    function search(list) {
+        let inputValue = document.querySelector('.place_for_search').value.toUpperCase()
+        list.forEach((li) => {
+            if (li.querySelector('.arara').textContent.toUpperCase().includes(inputValue) && inputValue) {
+                li.style.display = 'block'
+
+            } else {
+                li.style.display = 'none'
+            }
+        })
+    }
+</script>
+{% endblock %}

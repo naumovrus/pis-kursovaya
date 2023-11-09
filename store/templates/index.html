@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+<html lang="ru">
+<head>
+    {% block title %}Главная страница{% endblock %}
+
+<body>
+
+{% block Hello %}
+    <div class="greetings">
+        <h1>Добро пожаловать!</h1>
+        <p>Главная страница</p>
+    </div>
+{% endblock %}
+
+{%block content%}
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Панель управления продажами</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/home">Продажи</a>
+
+      </nav>
+    </div>
+    <aside>
+
+        <h3>Навигация</h3>
+        <ul>
+<!--            <li><a href="{% url 'index' %}"><i>Главная страница</i></a></li>-->
+            <li><a href="{% url 'CustomerBase' %}"><i>База клиентов</i></a></li>
+            <li><a href="{% url 'CheckCustomer' %}"><i>Проверка клиента</i></a></li>
+            <li><a href="{% url 'ProductInfo' %}"><i>Список товаров</i></a></li>
+            <li><a href="{% url 'MakeDeal' %}"><i>Заключить сделку</i></a></li><br>
+            <li><a href="{% url 'addproduct' %}"><button class="btn btn-info"><i>Добавить товар</i></button></a></li><br>
+            <li><a href="{% url 'addclient' %}"><button class="btn btn-info"><i>Добавить клиента</i></button></a></li>
+        </ul>
+    </aside>
+{%endblock%}
+
+</body>
+
+</html>

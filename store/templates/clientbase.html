@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}Клиенты{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Клиенты</h1>
+    {% if data %}
+    {% for el in data %}
+    <div class="alert alert-warning">
+        <h3>{{ el.cust_name }}</h3>
+        <p>Сумма покупок: {{ el.amount_of_purchases }}<br>Счёт: {{ el.cust_balance }}<br>Потолок кредита: {{el.cust_ceiling }}<br>Долг: {{ el.cust_debt }}<br>Комментарий: {{ el.comment }}</p>
+        <a href="{% url 'delete_customer' el.id %}" > Удалить клиента </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Клиенты не найдены</p>
+    {% endif %}
+</div>
+{% endblock %}

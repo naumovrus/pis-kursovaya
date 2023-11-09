@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}Заключение сделки{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Заключение сделки</h1>
+        <p>Выберите способ</p>
+        <ul>
+            <li><a href="{% url 'realcash' %}"><button class="btn btn-primary">Наличный расчёт</button></a></li><br>
+            <li><a href="{% url 'cash' %}"><button class="btn btn-primary">Безналичный расчёт</button></a></li><br>
+            <li><a href="{% url 'credit' %}"><button class="btn btn-primary">Кредит</button></a></li><br>
+            <li><a href="{% url 'barter' %}"><button class="btn btn-primary">Бартер</button></a></li><br>
+            <li><a href="{% url 'netting' %}"><button class="btn btn-primary">Взаимозачёт</button></a></li><br>
+        </ul>
+    </div>
+{% endblock %}

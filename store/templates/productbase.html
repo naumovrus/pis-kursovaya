@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}Все продукты{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Все продукты</h1>
+        {% if data %}
+            {% for el in data %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.prod_name }}</h3>
+                    <p>Цена: {{ el.prod_cost }}<br>
+                        На складе: {{ el.prod_amount }}</p>
+                    <a href="{% url 'delete_product' el.id %}" > Удалить товар </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Товары не найдены</p>
+        {% endif %}
+    </div>
+{% endblock %}
